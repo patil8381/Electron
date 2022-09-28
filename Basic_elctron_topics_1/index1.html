@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'" />
+  <!-- <title>Electron sofware app </title> -->
+</head>
+<script src="node_modules/electron-tabs/dist/electron-tabs.js">
+  const { ipcRenderer } = require('electron')
+  function sendData() {
+    console.log('working')
+    ipcRenderer.send('msg', 'hello from rendere')
+    // ipcRenderer.on('back-msg', (_event, arg) => 
+    //     {
+    //         console.log(arg) // prints "pong" in the DevTools console
+    //     }
+    // )
+
+  }
+</script>
+<script>require('./app.js') </script>
+<script> 
+const {ipcRenderer} = require('electron')
+function newtab() {
+    ipcRenderer.send("index");
+}
+</script>
+<script>
+  // Select tab-group
+  const tabGroup = document.querySelector("tab-group");
+
+  // Setup the default tab which is created when the "New Tab" button is clicked
+  tabGroup.setDefaultTab({
+    title: "New Page",
+    src: " new-page.html",
+    active: true
+  });
+
+  // Do stuff
+  const tab = tabGroup.addTab({
+    title: "electron-tabs on NPM",
+    src: "https://www.npmjs.com/package/electron-tabs"
+  });
+  const pos = tab.getPosition();
+  console.log("Tab position is " + pos);
+</script>
+
+<!-- <script src="main.js" ></script> -->
+<script>require('main.js') </script>
+
+
+<body style="text-align: center;user-select: none;
+-webkit-app-region:drag">
+  <!DOCTYPE html>
+  <html>
+
+  <body style="text-align:center ;">
+
+    <h2>HTML Forms</h2>
+
+    <form action="submit.html">
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" value=""><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" value=""><br><br>
+      <input type="submit" value="Submit">
+
+    </form>
+    <button onclick="sendData()">sendData</button>
+    <br><br>
+    <button onclick="newtab()" style="border-radius:10% ;">new tab</button>
+    <!-- <tab-group></tab-group> -->
+    <!-- <textarea name="content" id="" cols="30" rows="10"></textarea> -->
+
+    <script src="ckeditor_4.19.1_standard/ckeditor/ckeditor.js">  </script>
+    <script>CKEDITOR.replace('content')</script>
+    
+  </body>
+
+  </html>
+
+
+  <!-- 
+
+    <h2>Notes </h2>
+    <p>this html page can be reloaed by ctrl + r</p><br><br>
+    <input type="range" style="-webkit-app-region:no-drag">
+
+     -->
+
+</body>
+
+</html>
