@@ -1,0 +1,23 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "open": "nodemon --exec electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^35.1.0",
+    "electron": "^20.1.2",
+    "electron-builder": "^23.3.3",
+    "electron-log": "^4.4.8",
+    "electron-tabs": "^1.0.1",
+    "electron-window-state": "^5.0.3",
+    "globalshortcut": "^0.0.6",
+    "nodemon": "^2.0.19"
+  },
+  "devDependencies": {},
+  "description": ""
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>shopping list </h1>
+    <ul id="list">
+        
+    </ul>
+
+
+
+
+    <script>
+    const electron = require('electron');
+
+    const { ipcRenderer } = electron;
+
+    ipcRenderer.on("item:add",(event,item)=>{  
+    console.log(item);
+    //     let li = document.createElement("li")
+    //     let list = document.getElementById("list")
+    //     li.appendChild(item);
+    //     list.append(li);
+
+const li = document.createElement('li');
+    
+    const text = document.createTextNode(item);
+    li.appendChild(text);
+    
+    document.querySelector('ul').appendChild(li);
+    
+
+    
+
+    // const electron = require('electron');
+    // const { ipcRenderer } = electron;
+    // document.querySelector('form').addEventListener('submit', (event) => {
+    //   const { value } = document.querySelector('input');
+
+    //   ipcRenderer.send('todo:add', value);
+
+    // list.appendChild(item);
+
+})
+
+
+// const para = document.createElement("p");
+// const node = document.createTextNode("This is new.");
+// para.appendChild(node);
+// const element = document.getElementById("div1");
+// element.appendChild(item.value);
+
+
+
+    </script>
+    
+</body>
+</html>

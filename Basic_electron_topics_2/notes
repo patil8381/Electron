@@ -1,0 +1,31 @@
+preload script runs before the renderer process is loaded
+prload.js is a nodejs file for mainjs  src=me
+preload is a part of renderer process src=youtube 
+The code contained in renderer.js can then use the same JavaScript APIs
+renderer processes run web pages and do not run Node.js by default
+
+
+./   Look in the current directory.
+. before file will be hidden 
+
+ipc 
+renderer    window.versions.ping()
+preload     ping: () => ipcRenderer.invoke('ping'),
+main        ipcMain.handle('ping', () => 'pong')
+renderer    const func = async () => {
+            const response = await window.versions.ping()
+            console.log(response) // prints out 'pong'
+            }
+
+            func()
+
+ipc
+1 renderer to main one way      ipcRenderer.send and ipcMain.on
+2 renderer to main two way          ipcRendrer.invoke and ipcMain.handle
+3 main to renderer one way
+4 renderer to renderer way
+
+ipc 2 = preload wil create contextBridge and create api that will be called by renderer.js and then preload will invoke to main.js and main will listen by handle
+and the invoke and handle way is two way communication so the handle will return an output to the invoke and invoke will send to the renderer where the window.api is called and the return value is collected by any variable
+
+
