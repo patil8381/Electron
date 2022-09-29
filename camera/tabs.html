@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <tab-group new-tab-button="true" sortable="true" ></tab-group>
+    <p>hello world</p>
+    <button id="tabs">tabs</button>
+
+
+
+<script src="C:/Users/shubpatil/C_Code/Electron/electron-app/node_modules/electron-tabs/dist/electron-tabs.js"></script>
+<!-- <script src="node_modules/electron-tabs/dist/electron-tabs.js"></script> -->
+    <script>/* works in main window properly but not as secondary window*/
+        let tabGroup = document.querySelector("tab-group");
+        
+        tabGroup.setDefaultTab({
+            title:"Google",
+            src : "https://www.google.com/",
+            active : true,
+        });
+        
+        tabGroup.addTab({
+        title: "Wikipedia",
+        src: "https://www.wikipedia.org/",
+        active: true,
+        ready: () => console.info("New Tab is ready")
+        });
+        
+        let tab = tabGroup.addTab({
+            title : " custom tab ",
+            src : "C:/Users/shubpatil/C_Code/Electron/electron-app/page.html ",
+            // active:true,
+        })
+
+        
+        </script>
+        
+        <!-- <script src="indextabs.js"></script> -->
+        <!-- <script src="renderertabs.js"></script> -->
+        <script> 
+        let tabs = document.getElementById("tabs")
+        tabs.addEventListener('click',()=>{
+            window.api.ping();
+        })
+        </script>
+</body>
+</html>

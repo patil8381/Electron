@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Page</title>
+</head>
+
+<body>
+  <h1>Hello World!</h1>
+  <p>This is a local page.</p>
+  <button id="btn">popup</button>
+  <button id="al">alert</button>
+  <button id="ping">ping</button>
+
+  
+
+  <!-- <script>require("./index.js")</script> -->
+
+  <script src="indextabs.js"></script>
+  <script>
+    let al = document.getElementById('al');
+    al.addEventListener('click', () => {
+      alert('Hello')
+    })
+
+    let ping = document.getElementById('ping');
+    ping.addEventListener('click', () => { window.api.ping(); })
+
+
+    const btn = document.getElementById("btn");
+    btn.addEventListener('click', () => {
+      window.api.popupbtn()
+    })
+
+
+  </script>
+
+</body>
+
+</html>
+<!-- 
+npm install --save electron-tabs
+
+
+markup where you want the tabs to display:
+
+<tab-group></tab-group>
+<script src="node_modules/electron-tabs/dist/electron-tabs.js"></script>
+
+<tab-group new-tab-button="true" sortable="true"></tab-group>
+
+
+ 
+ 
+
+<script>
+  // Select tab-group
+  const tabGroup = document.querySelector("tab-group");
+
+  // Setup the default tab which is created when the "New Tab" button is clicked
+  
+  tabGroup.setDefaultTab({
+    title: "New Page",
+    src: "path/to/new-page.html",
+    active: true
+  });
+
+  // Do stuff
+  const tab = tabGroup.addTab({
+    title: "electron-tabs on NPM",
+    src: "https://www.npmjs.com/package/electron-tabs"
+  });
+  const pos = tab.getPosition();
+  console.log("Tab position is " + pos);
+</script>
+
+
+
+
+
+ -->
